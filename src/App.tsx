@@ -1,5 +1,5 @@
 import { Header } from "./components/Header";
-import '@fontsource/inter/400.css';
+import "./styles/fonts.css";
 export default function App() {
   return (
     <div className="App">
