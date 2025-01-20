@@ -83,7 +83,6 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4 md:p-6 border-b border-zinc-200 dark:border-zinc-800">
-
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-zinc-800 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors z-50"
@@ -96,7 +95,6 @@ export function Header() {
         <div className="hidden md:block text-xl font-bold text-zinc-900 dark:text-white z-50">
           Logo
         </div>
-
 
         <nav
           className={`
