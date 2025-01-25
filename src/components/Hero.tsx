@@ -1,18 +1,28 @@
 import HeroSvg from "../assets/icons/HeroSvg";
-import { github, linkedin, facebook, mail, Github, Link } from "lucide-react";
+import { Github, Linkedin, Facebook, Mail } from "lucide-react";
 export function Hero() {
-    const socials = [
-      {
-        name: "Github",
-        icon: github, // Now using the imported Github component
-        url: "https://github.com/Rappykyun",
-      },
-      {
-        name: "LinkedIn",
-        icon: linkedin, // Now using the imported Github component
-        url: "https://github.com/yourusername",
-      },
-    ];
+  const socials = [
+    {
+      name: "Github",
+      icon: Github, // Now using the imported Github component
+      url: "https://github.com/Rappykyun",
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin, // Now using the imported Github component
+      url: "https://github.com/yourusername",
+    },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      url: "https://facebook.com/yourusername",
+    },
+    {
+      name: "Email",
+      icon: Mail,
+      url: "mailto:youremail@example.com",
+    },
+  ];
   return (
     <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20">
       <section className="flex flex-col lg:flex-row items-start justify-between gap-16">
@@ -35,6 +45,20 @@ export function Hero() {
             looking for opportunities to work with a team of developers to learn
             and grow.
           </p>
+          <div className="flex flex-wrap items-center gap-4">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 text-zinc-600 hover:text-green-500 dark:text-zinc-400 dark:hover:text-green-400 transition-colors border  rounded-lg border-green-900 dark:border-green-900 py-2 px-5"
+              >
+                <social.icon size={20} className="sm:w-6 sm:h-6" />
+                <span className="text-sm font-medium font-incognito">{social.name}</span>
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="lg:w-2/5 flex justify-center items-center">
