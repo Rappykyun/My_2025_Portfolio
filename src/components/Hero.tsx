@@ -4,23 +4,23 @@ export function Hero() {
   const socials = [
     {
       name: "Github",
-      icon: Github, // Now using the imported Github component
+      icon: Github,
       url: "https://github.com/Rappykyun",
     },
     {
       name: "LinkedIn",
-      icon: Linkedin, // Now using the imported Github component
-      url: "https://github.com/yourusername",
+      icon: Linkedin,
+      url: "https://www.linkedin.com/in/ralph-vincent-rodriguez-205a6b241/",
     },
     {
       name: "Facebook",
       icon: Facebook,
-      url: "https://facebook.com/yourusername",
+      url: "https://web.facebook.com/ralphvincent.rodriguez.9",
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:youremail@example.com",
+      url: "mailto:ralphvincentrodriguez@sksu.edu.ph",
     },
   ];
   return (
@@ -52,7 +52,7 @@ export function Hero() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 text-zinc-600 hover:text-green-500 dark:text-zinc-400 dark:hover:text-green-400 transition-colors border  rounded-lg border-green-900 dark:border-green-900 py-2 px-5"
+                className="flex items-center justify-center gap-2 text-zinc-600 hover:text-green-500 dark:text-zinc-400 dark:hover:text-green-400 transition-colors border rounded-lg dark:border-zinc-800 border-green-500/30 py-2 px-5"
               >
                 <social.icon size={20} className="sm:w-6 sm:h-6" />
                 <span className="text-sm font-medium font-incognito">{social.name}</span>

@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { House, FolderKanban, Mail, Menu, X } from "lucide-react";
 import MoonIcon from "../assets/icons/MoonIcon";
 import SunIcon from "../assets/icons/SunIcon";
+import { NavLink } from "react-router-dom";
 
 export function Header() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
   const [isOpen, setIsOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Home");
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -42,32 +43,32 @@ export function Header() {
   };
 
   const navItems = [
-    { icon: House, label: "Home" },
-    { icon: FolderKanban, label: "Projects" },
-    { icon: Mail, label: "Contact" },
+    { icon: House, label: "Home", to: "/" },
+    { icon: FolderKanban, label: "Projects", to: "/projects" },
+    { icon: Mail, label: "Contact", to: "/contact" },
   ];
 
   type NavItemProps = {
     icon: React.ComponentType<{ className?: string }>;
     label: string;
-    isActive: boolean;
-    onClick: () => void;
+    to: string;
   };
 
-  function NavItem({ icon: Icon, label, isActive, onClick }: NavItemProps) {
+  function NavItem({ icon: Icon, label, to }: NavItemProps) {
     return (
       <li className="w-full md:w-auto">
-        <button
-          onClick={onClick}
-          className={`w-full md:w-auto text-sm flex items-center gap-2 font-incognito font-semibold 
+        <NavLink
+          to={to}
+          className={({ isActive }) => `
+            w-full md:w-auto text-sm flex items-center gap-2 font-incognito font-semibold 
             transition-all duration-200 px-4 py-3 md:py-2 rounded-lg
             ${
               isActive
                 ? "text-green-500 bg-green-50 dark:bg-green-950/30"
                 : "text-zinc-600 dark:text-zinc-400 hover:text-green-500 dark:hover:text-green-400"
             }
-            hover:scale-105`}
-          aria-current={isActive ? "page" : undefined}
+            hover:scale-105
+          `}
         >
           <Icon
             className={`w-5 h-5 ${
@@ -75,7 +76,7 @@ export function Header() {
             }`}
           />
           <span>{label}</span>
-        </button>
+        </NavLink>
       </li>
     );
   }
@@ -87,7 +88,7 @@ export function Header() {
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-zinc-800 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors z-50"
           aria-label="Toggle menu"
-          aria-expanded={isOpen ? "true" : "false"}
+          aria-expanded="false"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -118,11 +119,7 @@ export function Header() {
                 key={index}
                 icon={item.icon}
                 label={item.label}
-                isActive={activeItem === item.label}
-                onClick={() => {
-                  setActiveItem(item.label);
-                  setIsOpen(false);
-                }}
+                to={item.to}
               />
             ))}
           </ul>
