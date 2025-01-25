@@ -24,7 +24,7 @@ export function Hero() {
     },
   ];
   return (
-    <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20">
+ 
       <section className="flex flex-col lg:flex-row items-start justify-between gap-16">
         <div className="lg:w-3/5">
           <div className="mb-8 relative">
@@ -62,11 +62,11 @@ export function Hero() {
         </div>
 
         <div className="lg:w-2/5 flex justify-center items-center">
-          <div className="animate-float mt-16 lg:mt-24">
+          <div className="animate-float mt-16 lg:mt-24 lg:p-20">
             <HeroSvg />
           </div>
         </div>
       </section>
-    </main>
+
   );
 }

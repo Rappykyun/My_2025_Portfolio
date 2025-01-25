@@ -13,25 +13,41 @@ import Typography from "@mui/material/Typography";
 
 export function Experiences() {
   return (
-    <div className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20">
-      <h1 className="text-4xl font-incognito font-bold pb-10">
+    <div>
+      <h1 className="text-4xl font-incognito font-bold pt-10 pb-4">
         {" "}
         Work Experience? Not Yet, but Soon! 🚀{" "}
       </h1>
       <Timeline
         position="alternate"
         sx={{
+          //  for mobile
           "& .MuiTimelineItem-root": {
-            minHeight: "160px",
+            minHeight: "120px",
           },
           "& .MuiSvgIcon-root": {
-            fontSize: "2.5rem",
+            fontSize: "1.5rem",
           },
           "& .MuiTypography-h6": {
-            fontSize: "1.25rem",
+            fontSize: "1rem",
           },
           "& .MuiTypography-body1": {
-            fontSize: "1.25rem",
+            fontSize: "1rem",
+          },
+          //  for desktop
+          "@media (min-width: 768px)": {
+            "& .MuiTimelineItem-root": {
+              minHeight: "160px",
+            },
+            "& .MuiSvgIcon-root": {
+              fontSize: "2.5rem",
+            },
+            "& .MuiTypography-h6": {
+              fontSize: "1.25rem",
+            },
+            "& .MuiTypography-body1": {
+              fontSize: "1.25rem",
+            },
           },
         }}
       >
@@ -41,6 +57,7 @@ export function Experiences() {
             align="right"
             variant="body2"
             color="text.secondary"
+            className="dark:text-zinc-100"
           >
             9:30 am
           </TimelineOppositeContent>
@@ -63,6 +80,7 @@ export function Experiences() {
             sx={{ m: "auto 0" }}
             variant="body2"
             color="text.secondary"
+            className="dark:text-zinc-100"
           >
             10:00 am
           </TimelineOppositeContent>
