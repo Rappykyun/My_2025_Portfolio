@@ -52,9 +52,9 @@ export function Hero() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 text-zinc-600 hover:text-green-500 dark:text-zinc-400 dark:hover:text-green-400 transition-colors border rounded-lg dark:border-zinc-800 border-green-500/30 py-2 px-5"
+                className="flex items-center justify-center gap-2 text-zinc-600 hover:text-green-700 hover:scale-110 hover:shadow-lg dark:text-zinc-400 dark:hover:text-green-400 transition-all duration-300 ease-in-out rounded-lg p-2"
               >
-                <social.icon size={20} className="sm:w-6 sm:h-6" />
+                <social.icon size={20} className="sm:w-6 sm:h-6 transform hover:rotate-12 transition-transform duration-300" />
                 <span className="text-sm font-medium font-incognito">{social.name}</span>
               </a>
             ))}
