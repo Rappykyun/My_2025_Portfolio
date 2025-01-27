@@ -18,8 +18,8 @@ export function Projects() {
     return (
       <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20 ">
         <section>
-          <h1 className="font-incognito text-5xl font-bold">Projects</h1>
-          <p className="text-lg w-3/4 sm:text-xl text-gray-600 dark:text-gray-400 mb-8 pt-4">
+          <h1 className="font-incognito text-6xl font-bold">Projects</h1>
+          <p className="text-lg w-3/4 sm:text-xl text-gray-600 dark:text-gray-400 mb-8 pt-5">
             I’m still a 3rd-year Computer Science student, so I only have a few
             projects under my belt so far. However, these are the ones I’m most
             proud of! Some are open-source, so if one catches your eye, feel

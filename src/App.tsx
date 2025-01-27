@@ -4,6 +4,7 @@ import { FaceRecoProject } from "./components/FaceRecoProject";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/fonts.css";
 import { Projects } from "./pages/Projects";
+
 export default function App() {
   return (
     <Router>
