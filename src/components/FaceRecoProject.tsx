@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
 import { Stack } from "../blocks/Components/Stack/Stack";
+import { ProjectSection } from "./ProjectSection";
+
+type SectionType = "text" | "list" | "features";
 
 export function FaceRecoProject() {
-  const { projectId } = useParams();
   const projectDetails = [
     {
       Title: "Digital Attendance System",
@@ -70,9 +71,48 @@ export function FaceRecoProject() {
     },
   ];
   const project = projectDetails[0];
+  const sections = [
+    {
+      title: "Overview",
+      content: project.Overview,
+      type: "text" as SectionType,
+    },
+    {
+      title: "Technologies",
+      content: project.Technologies,
+      type: "list" as SectionType,
+    },
+    {
+      title: "Key Features",
+      content: project.KeyFeatures,
+      type: "features" as SectionType,
+    },
+    {
+      title: "Architecture",
+      content: [
+        {
+          title: "Frontend",
+          points: project.Architecture.Frontend,
+        },
+        {
+          title: "Backend",
+          points: project.Architecture.Backend,
+        },
+      ],
+      type: "features" as SectionType,
+    },
+    {
+      title: "Challenges",
+      content: project.Challenges,
+      type: "list" as SectionType,
+    },
+  ];
+
   return (
     <main className="max-w-7xl mx-auto sm:text-sm md:px-16 px-6 lg:mt-32 mt-20">
-      <h1 className="font-incognito text-5xl font-bold p-5">{project.Title}</h1>
+      <h1 className="font-incognito text-5xl font-bold pb-8">
+        {project.Title}
+      </h1>
       <div className="p-5 bg-zinc-500 flex items-center rounded-3xl">
         <Stack
           randomRotation={false}
@@ -89,12 +129,20 @@ export function FaceRecoProject() {
               window.innerWidth < 640
                 ? 200 // mobile
                 : window.innerWidth < 1024
-                  ? 400 // tablet
-                  : 600, 
+                  ? 400
+                  : 600,
           }}
           cardsData={project.images}
         />
       </div>
+      {sections.map((section, index) => (
+        <ProjectSection
+          key={index}
+          title={section.title}
+          content={section.content}
+          type={section.type}
+        />
+      ))}
     </main>
   );
 }
