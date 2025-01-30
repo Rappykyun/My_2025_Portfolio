@@ -9,7 +9,7 @@ export function ProjectSection({ title, content, type }: SectionProps) {
     switch (type) {
       case "text":
         return (
-          <p className="text-lg sm:text-xl text-gray-300 pt-5">
+          <p className="text-lg sm:text-xl dark:text-gray-300 pt-5">
             {content as string}
           </p>
         );
@@ -18,7 +18,7 @@ export function ProjectSection({ title, content, type }: SectionProps) {
         return (
           <ul className="list-disc pl-5 pt-5 space-y-2">
             {(content as string[]).map((item, index) => (
-              <li key={index} className="text-lg text-gray-300">
+              <li key={index} className="text-lg dark:text-gray-300">
                 {item}
               </li>
             ))}
@@ -34,7 +34,7 @@ export function ProjectSection({ title, content, type }: SectionProps) {
                   <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                   <ul className="list-disc pl-5 space-y-2">
                     {feature.points.map((point, idx) => (
-                      <li key={idx} className="text-gray-300">
+                      <li key={idx} className="dark:text-gray-300">
                         {point}
                       </li>
                     ))}
