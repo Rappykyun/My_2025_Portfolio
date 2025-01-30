@@ -40,3 +40,24 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #71717a #27272a;
 }
+.image-blur-corner {
+  position: relative;
+}
+
+.image-blur-corner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 0 100% 0 0;
+  pointer-events: none;
+}
+
+.dark .image-blur-corner::after {
+  background: rgba(0, 0, 0, 0.2);
+}

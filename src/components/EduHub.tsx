@@ -116,7 +116,7 @@ export function EduHub() {
       <h1 className="font-incognito text-5xl font-bold pb-8">
         {project.Title}
       </h1>
-      <div className="p-5 bg-zinc-500 flex items-center rounded-3xl">
+      <div className="p-5 bg-zinc-500 flex items-center rounded-3xl image-blur-corner">
         <Stack
           randomRotation={false}
           sensitivity={180}
