@@ -1,13 +1,21 @@
 {
   "name": "My_2025_Portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Modern portfolio website for Ralph Vincent Rodriguez - Computer Science student and aspiring software engineer",
+  "author": "Ralph Vincent Rodriguez <ralphvincentrodriguez@sksu.edu.ph>",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:vercel": "npm run build && vercel deploy --prod",
+    "deploy:netlify": "npm run build && netlify deploy --prod --dir dist",
+    "deploy:gh-pages": "npm run build && gh-pages -d dist",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist/stats.html"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -38,5 +46,27 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss",
+    "computer-science",
+    "software-engineer",
+    "student"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rappykyun/My_2025_Portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rappykyun/My_2025_Portfolio/issues"
+  },
+  "homepage": "https://your-domain.com",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }

@@ -5,6 +5,8 @@ import "./styles/fonts.css";
 import { Projects } from "./pages/Projects";
 import { ProjectDetails } from "./components/ProjectDetails";
 import { Footer } from "./components/Footer";
+import { Contact } from "./pages/Contact";
+import { NotFound } from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<ProjectDetails />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
