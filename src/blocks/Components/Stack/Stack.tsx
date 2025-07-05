@@ -44,7 +44,7 @@ function CardRotate({ children, onSendToBack, sensitivity }: CardRotateProps) {
   const rotateY = useTransform(x, [-100, 100], [-60, 60]);
 
   function handleDragEnd(
-    event: MouseEvent | TouchEvent | PointerEvent,
+    _event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) {
     if (
