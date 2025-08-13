@@ -23,14 +23,12 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     setIsSubmitting(false);
     setIsSubmitted(true);
     setFormData({ name: "", email: "", subject: "", message: "" });
-    
-    // Reset success message after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
   };
 
@@ -56,20 +54,20 @@ export function Contact() {
   ];
 
   return (
-    <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20 mb-20">
+    <main className="px-6 mx-auto mt-20 mb-20 max-w-7xl md:px-16 lg:mt-32">
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="font-incognito text-6xl font-bold mb-8">Get In Touch</h1>
-        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl">
+        <h1 className="mb-8 text-6xl font-bold font-incognito">Get In Touch</h1>
+        <p className="max-w-3xl mb-12 text-lg text-gray-600 sm:text-xl dark:text-gray-400">
           I'm always interested in hearing about new opportunities, especially ambitious or large-scale projects. 
           Whether you're a company looking to hire, or you're a fellow developer who'd like to collaborate, I'd love to hear from you.
         </p>
       </motion.section>
 
-      <div className="grid lg:grid-cols-3 gap-12">
+      <div className="grid gap-12 lg:grid-cols-3">
         {/* Contact Information */}
         <motion.section
           initial={{ opacity: 0, x: -20 }}
@@ -77,11 +75,11 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="lg:col-span-1"
         >
-          <h2 className="font-incognito text-2xl font-bold mb-6">Let's Connect</h2>
+          <h2 className="mb-6 text-2xl font-bold font-incognito">Let's Connect</h2>
           <div className="space-y-4">
             {contactInfo.map((item, index) => (
-              <div key={index} className="flex items-start gap-4 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-                <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg">
+              <div key={index} className="flex items-start gap-4 p-4 rounded-lg bg-zinc-50 dark:bg-zinc-800/50">
+                <div className="p-2 bg-green-100 rounded-lg dark:bg-green-900/30">
                   <item.icon className="w-5 h-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
@@ -89,7 +87,7 @@ export function Contact() {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="text-zinc-600 dark:text-zinc-400 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                      className="transition-colors text-zinc-600 dark:text-zinc-400 hover:text-green-600 dark:hover:text-green-400"
                     >
                       {item.value}
                     </a>
@@ -109,14 +107,14 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="lg:col-span-2"
         >
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-8">
-            <h2 className="font-incognito text-2xl font-bold mb-6">Send a Message</h2>
+          <div className="p-8 bg-white border rounded-lg dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800">
+            <h2 className="mb-6 text-2xl font-bold font-incognito">Send a Message</h2>
             
             {isSubmitted && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3"
+                className="flex items-center gap-3 p-4 mb-6 border border-green-200 rounded-lg bg-green-50 dark:bg-green-900/20 dark:border-green-800"
               >
                 <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
                 <p className="text-green-700 dark:text-green-300">
@@ -126,9 +124,9 @@ export function Contact() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label htmlFor="name" className="block mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Name *
                   </label>
                   <input
@@ -138,12 +136,12 @@ export function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 transition-colors border rounded-lg bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Email *
                   </label>
                   <input
@@ -153,14 +151,14 @@ export function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 transition-colors border rounded-lg bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                <label htmlFor="subject" className="block mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                   Subject *
                 </label>
                 <input
@@ -170,13 +168,13 @@ export function Contact() {
                   required
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 transition-colors border rounded-lg bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="What's this about?"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                <label htmlFor="message" className="block mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                   Message *
                 </label>
                 <textarea
@@ -186,7 +184,7 @@ export function Contact() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors resize-none"
+                  className="w-full px-4 py-3 transition-colors border rounded-lg resize-none bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Tell me about your project or opportunity..."
                 />
               </div>
@@ -194,11 +192,11 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full md:w-auto bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="flex items-center justify-center w-full gap-2 px-8 py-3 font-semibold text-white transition-colors bg-green-600 rounded-lg md:w-auto hover:bg-green-700 disabled:bg-green-400"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-white rounded-full border-t-transparent animate-spin" />
                     Sending...
                   </>
                 ) : (
